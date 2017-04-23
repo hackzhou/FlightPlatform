@@ -1,13 +1,22 @@
 package com.ly.flight.exception;
 
-public class BusinessException extends Exception {
-	private static final long serialVersionUID = 6459734265489250929L;
+public class BusinessException extends RuntimeException {
+	private static final long serialVersionUID = 1307184728982833217L;
 
-	public BusinessException(){
+	public BusinessException() {
 		super();
 	}
-	
-	public BusinessException(String str){
-		super(str);
+
+	public BusinessException(String message) {
+		super(message);
 	}
+
+	public BusinessException(Throwable cause) {
+		super(cause);
+	}
+
+	public BusinessException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
 }
