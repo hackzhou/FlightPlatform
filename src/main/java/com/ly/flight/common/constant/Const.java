@@ -1,4 +1,4 @@
-package com.ly.flight.constant;
+package com.ly.flight.common.constant;
 
 public class Const {
 	
