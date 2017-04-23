@@ -9,9 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="f_user")
-public class FUser implements Serializable{
-	private static final long serialVersionUID = -1261038399122321328L;
+@Table(name="t_user")
+public class TUser implements Serializable{
+	private static final long serialVersionUID = -4653968980640897204L;
 
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ public class FUser implements Serializable{
 	@Column(name="password")
 	private String password;
 	
-	public FUser() {
+	public TUser() {
 		super();
 	}
 	
@@ -49,7 +49,7 @@ public class FUser implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "FUser [id=" + id + ", username=" + username + ", password=" + password + "]";
+		return "TUser [id=" + id + ", username=" + username + ", password=" + password + "]";
 	}
 	
 }
