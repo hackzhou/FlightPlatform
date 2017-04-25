@@ -13,19 +13,19 @@ import com.ly.flight.entity.TUser;
 public class BaseController implements MessageSourceAware {
 
 	protected MessageSource messageSource;
-	public static final String RESPONS_ECODE = "responseCode";
-	public static final String RESPONS_EMSG = "responseMsg";
-	public static final String DATA_LIST = "dataList";
-	public static final String DATA = "data";
-	public static final String DATA_COUNT = "dataCount";
-	public static final String SUCCESS_CODE = "0000";
-	public static final String FAILED_CODE = "1111";
+	public static final String RESPONSE_CODE	= "responseCode";
+	public static final String RESPONSE_MSG		= "responseMsg";
+	public static final String DATA_LIST		= "dataList";
+	public static final String DATA				= "data";
+	public static final String DATA_COUNT		= "dataCount";
+	public static final String SUCCESS_CODE		= "0000";
+	public static final String FAILED_CODE		= "1111";
 
 	public ModelAndView success(List<?> results, int count, String viewName) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(viewName);
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put(RESPONS_ECODE, SUCCESS_CODE);
+		map.put(RESPONSE_CODE, SUCCESS_CODE);
 		map.put(DATA_LIST, results);
 		map.put(DATA_COUNT, count);
 		mv.addAllObjects(map);
@@ -34,15 +34,15 @@ public class BaseController implements MessageSourceAware {
 
 	public Map<String, Object> successJson(Object result) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put(RESPONS_ECODE, SUCCESS_CODE);
+		map.put(RESPONSE_CODE, SUCCESS_CODE);
 		map.put(DATA, result);
 		return map;
 	}
 
 	public Map<String, Object> failedJson(String message) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put(RESPONS_ECODE, FAILED_CODE);
-		map.put(RESPONS_EMSG, message);
+		map.put(RESPONSE_CODE, FAILED_CODE);
+		map.put(RESPONSE_MSG, message);
 		return map;
 	}
 
@@ -50,8 +50,8 @@ public class BaseController implements MessageSourceAware {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(viewName);
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put(RESPONS_ECODE, responseCode);
-		map.put(RESPONS_EMSG, GlobalValueConfig.getMsgByCode(responseCode, ""));
+		map.put(RESPONSE_CODE, responseCode);
+		map.put(RESPONSE_MSG, GlobalValueConfig.getMsgByCode(responseCode, ""));
 		mv.addAllObjects(map);
 		return mv;
 	}
@@ -60,8 +60,8 @@ public class BaseController implements MessageSourceAware {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(viewName);
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put(RESPONS_ECODE, responseCode);
-		map.put(RESPONS_EMSG, GlobalValueConfig.getMsgByCode(responseCode, responseMsg));
+		map.put(RESPONSE_CODE, responseCode);
+		map.put(RESPONSE_MSG, GlobalValueConfig.getMsgByCode(responseCode, responseMsg));
 		mv.addAllObjects(map);
 		return mv;
 	}
@@ -69,7 +69,7 @@ public class BaseController implements MessageSourceAware {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(viewName);
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put(RESPONS_ECODE, SUCCESS_CODE);
+		map.put(RESPONSE_CODE, SUCCESS_CODE);
 		mv.addAllObjects(map);
 		return mv;
 	}
@@ -78,7 +78,7 @@ public class BaseController implements MessageSourceAware {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(viewName);
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put(RESPONS_ECODE, SUCCESS_CODE);
+		map.put(RESPONSE_CODE, SUCCESS_CODE);
 		map.put(DATA, data);
 		mv.addAllObjects(map);
 		return mv;
@@ -88,7 +88,7 @@ public class BaseController implements MessageSourceAware {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(viewName);
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put(RESPONS_ECODE, SUCCESS_CODE);
+		map.put(RESPONSE_CODE, SUCCESS_CODE);
 		map.put(name, data);
 		mv.addAllObjects(map);
 		return mv;
